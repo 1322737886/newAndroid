@@ -2,11 +2,10 @@ package com.nbpt.zyx_sb;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.view.Menu;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -14,7 +13,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
+import static android.content.ContentValues.TAG;
 
 public class Linear extends Activity {
     EditText yhText;
@@ -27,6 +26,10 @@ public class Linear extends Activity {
     boolean isCheck = false,isAuto=false;
     private CheckBox auto;
     private String sUsername,sPassword;
+    private  int REQUEST_CREATENEW=0;
+    private int RESULT_OK = 0;
+//    private int RESULT_FALL = 1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +109,9 @@ public class Linear extends Activity {
                                     editor.clear();
                                 }
                                 Intent intent = new Intent(Linear.this, MenuActivity.class);
+                                intent.putExtra("username","test");
+                                intent.putExtra("gender","男");
+                                intent.putExtra("phonenumber","13505741234");
                                 startActivity(intent);
                             } else if (password.equals(db.getPassword(cursor))) {
                                 Toast.makeText(Linear.this, "密码错误", Toast.LENGTH_LONG).show();
@@ -127,13 +133,27 @@ public class Linear extends Activity {
 
 
         }
+
+    protected void onActivityResult(int requestCode,int resultCode,Intent data){
+        if (requestCode==REQUEST_CREATENEW){
+            if(resultCode==RESULT_OK){
+                String user = data.getStringExtra("username");
+                String password = data.getStringExtra("password");
+                yhText.setText(user);
+                mmText.setText(password);
+            }else{
+                Log.d(TAG,"注册新用户返回失败");
+            }
+        }
+    }
+
     public void zhuce(View view){
-        Intent intent1=new Intent(Linear.this,RegisterActivity.class);
-        startActivity(intent1);
+        Intent intent2 = new Intent(Linear.this,RegisterActivity.class);
+        startActivityForResult(intent2,REQUEST_CREATENEW);
     }
-    @Override
-    protected void onStop() {
-        super.onStop();
-       finish();
-    }
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//        finish();
+//    }
 }

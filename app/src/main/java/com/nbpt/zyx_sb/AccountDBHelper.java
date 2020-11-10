@@ -5,8 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.renderscript.Sampler;
-import android.view.View;
 import android.widget.EditText;
 
 /**
@@ -16,8 +14,8 @@ import android.widget.EditText;
 public class AccountDBHelper extends SQLiteOpenHelper {
     EditText edtName;
     private Context mContext;
-    private static final String DB_NAme="user.db";
-    private static final String TABLE_Name="tb_accounts";
+    private static final String DB_NAme="account.db";
+    private static final String TABLE_Name="tb_users";
     static final int VERSION_1=1;
     public AccountDBHelper(Context context,int version) {
         super(context, DB_NAme,null, version);
