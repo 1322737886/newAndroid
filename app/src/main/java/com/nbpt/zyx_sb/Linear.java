@@ -105,7 +105,7 @@ public class Linear extends Activity {
                                     SharedPreferences.Editor editor = sp.edit();
                                     editor.clear();
                                 }
-                                Intent intent = new Intent(Linear.this, MenuActivity.class);
+                                Intent intent = new Intent(Linear.this, Main5Activity.class);
                                 startActivity(intent);
                             } else if (password.equals(db.getPassword(cursor))) {
                                 Toast.makeText(Linear.this, "密码错误", Toast.LENGTH_LONG).show();

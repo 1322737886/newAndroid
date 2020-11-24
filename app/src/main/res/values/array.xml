@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="name">
+        <item>个人信息</item>
+        <item>用户名称</item>
+        <item>软件版本</item>
+        <item>联系我们</item>
+    </array>
+</resources>
