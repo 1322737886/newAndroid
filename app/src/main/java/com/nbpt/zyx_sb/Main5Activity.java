@@ -50,6 +50,12 @@ public class Main5Activity extends Activity {
                     case 1:{Intent intent2 = new Intent(Main5Activity.this,zhinengshangchao.class);
                              startActivity(intent2);
                             break;}
+                    case 2:{Intent intent2 = new Intent(Main5Activity.this,tianqiyubao.class);
+                        startActivity(intent2);
+                        break;}
+                    case 3:{Intent intent2 = new Intent(Main5Activity.this,shezhi.class);
+                        startActivity(intent2);
+                        break;}
                 }
             }
         });

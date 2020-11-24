@@ -45,9 +45,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".zhienngjiaju"
-            android:label="智能家居"/>
-        <activity android:name=".zhinengshangchao"></activity>
+        <activity
+            android:name=".zhienngjiaju"
+            android:label="智能家居" />
+        <activity android:name=".zhinengshangchao" />
+        <activity android:name=".tianqiyubao" />
+        <activity android:name=".shezhi"></activity>
     </application>
 
 </manifest>
